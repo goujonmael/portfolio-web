@@ -12,14 +12,14 @@
   align-items: center;
   justify-items: center;
   min-height: 100svh;
-  
+
   padding-bottom: 60px;
   font-family: var(--font-geist-sans);
   background-color: #fff;
   color: #1b1b1f;
   --titles: #213547;
   --text: rgba(60, 60, 60, 0.7);
-  --code: #292d3e;
+  --code: #292d3edb;
   --code-text: #A6ACCD;
 }
 
@@ -38,16 +38,23 @@
 }
 
 .header {
+  background-color: var(--code);
+  backdrop-filter: blur(10px);
+  /* Effet de flou */
+  -webkit-backdrop-filter: blur(10px);
+  /* Effet de flou pour Safari */
   position: fixed;
-  top: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 32px;
-  height: 64px;
+  top: 0;
+  z-index: 1000;
+  padding: 8px;
   border-bottom: 2px solid var(--gray-alpha-200);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  color: var(--code-text);
 }
 
 .main {
@@ -57,7 +64,7 @@
   gap: 32px;
   grid-row-start: 2;
   padding: 10px;
-  
+
   width: 100%;
 }
 
@@ -101,6 +108,7 @@
   background-color: #f9f9f9;
   padding: 10px;
   width: fit-content;
+  margin: 10px;
 }
 
 .me_right {
@@ -123,6 +131,10 @@
 .profile {
   border-radius: 50%;
   justify-self: center;
+  user-select: none;
+  /* Empêche la sélection de l'image */
+  pointer-events: none;
+  /* Empêche les événements de la souris sur l'image */
 }
 
 /* Name next to the profile picture */
@@ -221,6 +233,10 @@ a.secondary {
   padding: 16px 32px;
   border: 2px solid green;
   background-color: var(--code);
+  backdrop-filter: blur(10px);
+  /* Effet de flou */
+  -webkit-backdrop-filter: blur(10px);
+  /* Effet de flou pour Safari */
   color: var(--code-text);
   z-index: 1000;
   /* pour que le footer reste au-dessus */
@@ -298,6 +314,11 @@ a.secondary {
     align-items: center;
     justify-content: center;
     padding: 5px;
+    gap: 5px;
+  }
+
+  .footer a {
+    gap: 3px;
   }
 }
 

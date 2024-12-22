@@ -1,16 +1,31 @@
+'use client'
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
+
+
 
 export default function Home() {
+  const [isHovered, setIsHovered] = useState(false);
+  const constraintsRef = useRef<HTMLDivElement>(null);
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Portfolio</h1>
+        <h1 className={styles.headerTitle}>Portfolio</h1>
       </header>
       <main className={styles.main}>
-        <div className={styles.me}>
+        <motion.div
+          className={styles.me}
+          ref={constraintsRef}
+          style={{
+            position: "relative"
+          }}
+        >
+
           <Image
-            src="/pp.jpg"
+            src="/pp2.jpg"
             alt="Picture of Mael GOUJON"
             /* auto width and height */
             width={180}
@@ -18,18 +33,42 @@ export default function Home() {
             className={styles.profile}
           />
           <div className={styles.me_right}>
-            <h1 className={styles.name}>
+            <motion.h1 className={styles.name}
+              whileHover={{ scale: 1.1 }}>
               GOUJON
               <br />
               Mael
-            </h1>
-            <p className={styles.description}>
+            </motion.h1>
+
+            <span className={styles.description}>
               Étudiant en <a className={styles.but} href="https://www.univ-tlse3.fr/decouvrir-nos-diplomes/but-informatique-parcours-deploiement-dapplications-communicantes-et-securisees-toulouse">Informatique</a>
               <br />
-              Alternant chez <a className={styles.airbus} href="https://www.airbus.com/en/products-services/space/telecommunications-and-navigation-satellites">Airbus</a>
-            </p>
+              Alternant chez <a className={styles.airbus} href="https://www.airbus.com/en/products-services/space/telecommunications-and-navigation-satellites" onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)} style={{ position: 'relative', display: 'inline-block' }}>Airbus
+                {isHovered && (
+                  <motion.div
+                    animate={{ x: [0, 50, 0] }}
+                    transition={{ duration: 1, ease: "linear" }}
+                    style={{
+                      width: 30,
+                      height: 30,
+                      position: "absolute",
+                    }}
+                  >
+                    <Image
+                      src="/satellite.svg"
+                      alt="Satellite icon"
+                      width={30}
+                      height={30}
+                    />
+                  </motion.div>
+                )}
+              </a>
+            </span>
+
           </div>
-        </div>
+
+        </motion.div>
         <ol>
           <li>
             Get started by editing <code>app/page.tsx</code>.
