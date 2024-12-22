@@ -65,6 +65,27 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+/* 2 columns for profile picture and name */
+.me {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 10px;
+}
+
+/* profile picture */
+.profile {
+  border-radius: 50%;
+}
+
+/* Name next to the profile picture */
+.name {
+  font-size: 40px;
+  font-weight: 500;
+  font-family: var(--font-geist-sans);
+}
+
 .verylongtext {
   font-size: 20px;
   line-height: 24px;

@@ -5,9 +5,20 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          GOUJON Mael
-        </h1>
+        <div className={styles.me}>
+          <Image
+            src="/pp.jpg"
+            alt="Picture of Mael GOUJON"
+            width={200}
+            height={200}
+            className={styles.profile}
+          />
+          <h1 className={styles.name}>
+            GOUJON
+            <br />
+            Mael
+          </h1>
+        </div>
         <ol>
           <li>
             Get started by editing <code>app/page.tsx</code>.
