@@ -6,15 +6,25 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  /*display: grid;
+  grid-template-rows: 20px 1fr 20px;*/
+
   align-items: center;
   justify-items: center;
   min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  
+  padding-bottom: 60px;
   font-family: var(--font-geist-sans);
+  background-color: #fff;
+  color: #1b1b1f;
+  --titles: #213547;
+  --text: rgba(60, 60, 60, 0.7);
+  --code: #292d3e;
+  --code-text: #A6ACCD;
 }
+
+
+
 
 @media (prefers-color-scheme: dark) {
   .page {
@@ -33,6 +43,9 @@
   gap: 32px;
   grid-row-start: 2;
   border: 2px solid var(--gray-alpha-200);
+  padding: 10px;
+  
+  width: 100%;
 }
 
 .main ol {
@@ -69,14 +82,34 @@
 .me {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
   align-items: center;
+  border: 2px solid #a4a4a4;
+  border-radius: 8px;
+  background-color: #f9f9f9;
   padding: 10px;
+  width: fit-content;
+}
+
+.me_right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  font-family: var(--font-geist-sans);
+  text-align: justify;
+  /* justifier le texte */
+  color: var(--text);
 }
 
 /* profile picture */
 .profile {
   border-radius: 50%;
+  justify-self: center;
 }
 
 /* Name next to the profile picture */
@@ -84,6 +117,18 @@
   font-size: 40px;
   font-weight: 500;
   font-family: var(--font-geist-sans);
+  color: var(--titles);
+  line-height: 0.8;
+}
+
+.airbus {
+  color: rgb(7, 26, 61);
+  text-decoration: underline;
+}
+
+.but {
+  color: #fbc900;
+  text-decoration: underline;
 }
 
 .verylongtext {
@@ -91,6 +136,27 @@
   line-height: 24px;
   font-weight: 400;
   font-family: var(--font-geist-sans);
+  text-align: justify;
+  /* justifier le texte */
+}
+
+/* picture of the national BUT Informatique program */
+.pn {
+  width: 100%;
+  border-radius: 8px;
+  height: auto;
+}
+
+.table {
+  width: 100%;
+  overflow-x: auto;
+  border: 2px solid red;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid blue;
 }
 
 .ctas {
@@ -136,11 +202,15 @@ a.secondary {
   width: 100%;
   grid-row-start: 3;
   display: flex;
+  justify-content: center;
+  /* centrer horizontalement */
   gap: 24px;
   padding: 16px 32px;
   border: 2px solid green;
-  background-color: white;
-  z-index: 1000; /* pour que le footer reste au-dessus */
+  background-color: var(--code);
+  color: var(--code-text);
+  z-index: 1000;
+  /* pour que le footer reste au-dessus */
 }
 
 .footer a {
@@ -172,8 +242,19 @@ a.secondary {
 }
 
 @media (max-width: 600px) {
+
+  .me {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-self: auto;
+  }
+
+  .name {
+    text-align: center;
+    align-self: center;
+  }
+
   .page {
-    padding: 32px;
     padding-bottom: 80px;
   }
 
@@ -203,6 +284,7 @@ a.secondary {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    padding: 5px;
   }
 }
 
